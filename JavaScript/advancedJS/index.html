@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced JS</title>
+    <style>
+        div{
+            min-width: 100px;
+            min-height: 100px;
+            padding: 30px;
+            border: 2px solid darkorchid;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" onkeyup="debounceFunction()" />
+    <hr />
+    <div id="grandParent">
+        <div id="parent">
+            <div id="child"></div>
+        </div>
+    </div>
+    <hr />
+    <div id="category">
+        <ul>
+            <li id="laptop">Laptop</li>
+            <li id="camera">Camera</li>
+            <li id="shoes">Shoes</li>
+        </ul>
+    </div>
+    <hr />
+    <div id="form">
+        <input type="text" id="name" data-uppercase/>
+        <input type="text" id="pan" />
+        <input type="text" id="mobile" />
+    </div>
+    
+</body>
+<script src="/advancedJS/app.js"></script>
+</html>
