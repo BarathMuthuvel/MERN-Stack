@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#t9-container {
+    text-align: center;
+}
+
+#output {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+    min-height: 30px;
+    width: 100%;
+    max-width: 300px;
+    word-wrap: break-word;
+}
+
+#keyboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+button {
+    padding: 20px;
+    font-size: 18px;
+    cursor: pointer;
+    position: relative;
+}
+
+button small {
+    display: block;
+    font-size: 12px;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+
+button.space {
+    grid-column: span 3;
+}
+
+button.back {
+    grid-column: span 3;
+    background-color: #f44336;
+    color: white;
+}

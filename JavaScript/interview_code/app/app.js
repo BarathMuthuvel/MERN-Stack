@@ -81,10 +81,23 @@ console.log(memoizedAdd(2, 3)); // 5, Add function is called to get new value
 
 const a1 = [1, 2, 3, [4, [5, 6]], 7, 8];
 
+// function flattenArray(arr){
+//     return arr.reduce((acc,val) => {
+//         return acc.concat(Array.isArray(val)? flattenArray(val) : val)
+//     },[])
+// }
+
 function flattenArray(arr){
-    return arr.reduce((acc,val) => {
-        return acc.concat(Array.isArray(val)? flattenArray(val) : val)
-    },[])
+  let result = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      result = result.concat(flattenArray(arr[i]));
+    } else {
+      result.push(arr[i]);
+    }
+  }
+  return result;
 }
 
 const result = flattenArray(a1);
@@ -94,14 +107,12 @@ console.log(result);
 
 //! Reverse String
 
-function reverseString(str) {
-  return str.split("").reverse().join("");
-}
-console.log(reverseString("Barath Muthuvel"));
+// function reverseString(str) {
+//   return str.split("").reverse().join("");
+// }
+// console.log(reverseString("Barath Muthuvel"));
 
 function reverseString(str) {
-  let i = str.length;
-  console.log(i);
   let reversedStr = ''; 
   for (let i = str.length - 1; i >= 0; i--) {
     reversedStr += str[i]; 
@@ -109,7 +120,7 @@ function reverseString(str) {
   return reversedStr;  
 }
 
-console.log(reverseString("Barath Muthuvel")); 
+console.log(reverseString("Barath")); 
 
 //! Missing Number
 
@@ -120,7 +131,7 @@ function getMissingNumbers(inputArray) {
 
 const inputArray = [2,4,6,8];
 const outputArray = getMissingNumbers(inputArray);
-console.log(outputArray);
+console.log("Missing Number",outputArray);
 
 
 //! Rotate Array
