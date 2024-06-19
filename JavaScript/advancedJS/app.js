@@ -18,7 +18,7 @@ result();
 //!inheritance
 
 //? one Object try to access methods and proterties of other Object
-// whenever we create object in js js engine autometically put hidden property in object and attached to it original object we can access that property and method
+// whenever we create object in js. js engine autometically put hidden property in object and attached to it original object we can access that property and method
 
 //* arr.__proto__ === Array.prototype
 //* arr.__proto__.__proto__ === Object.prototype
@@ -37,7 +37,7 @@ let obj2 = {
 };
 
 obj2.__proto__ = obj1;
-console.log(obj2);
+console.log(obj2.getInfo());
 
 //! Polyfill for bind
 
@@ -106,7 +106,7 @@ const debounce = (func, timeout) => {
   let timer;
   return (...args) => {
     let context = this;
-    clearInterval(timer);
+    clearTimeout(timer);
     timer = setTimeout(() => {
       func.apply(context, args);
     }, timeout);
@@ -237,3 +237,9 @@ function add(a) {
 const Sum = a => b => b ? Sum( a + b ) : a;
 
 console.log(add(1)(2)(3)(4)(5)());
+
+
+
+
+
+

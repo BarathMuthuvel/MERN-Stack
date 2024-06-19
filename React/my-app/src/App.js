@@ -5,15 +5,17 @@ import ToDo from "./components/ToDo/To-Do";
 import T9Keyboard from "./components/T9Keyboard/T9Keyboard";
 import Billboard from "./components/BillBoard/BillBoard.js";
 import TwoWayBindingExample from "./components/TwoWayDataBinding/TwoWayDataBinding.js";
+import QuizApp from "./components/QuizApp/QuizApp.js";
 
 function App() {
   return (
     <div>
-      {/* <TicTacToe /> */}
+      <TicTacToe />
       {/* <ToDo /> */}
       {/* <T9Keyboard /> */}
       {/* <Billboard /> */}
-      <TwoWayBindingExample />
+      {/* <TwoWayBindingExample /> */}
+      {/* <QuizApp /> */}
     </div>
   );
 }

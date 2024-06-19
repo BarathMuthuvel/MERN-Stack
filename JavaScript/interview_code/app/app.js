@@ -81,12 +81,6 @@ console.log(memoizedAdd(2, 3)); // 5, Add function is called to get new value
 
 const a1 = [1, 2, 3, [4, [5, 6]], 7, 8];
 
-// function flattenArray(arr){
-//     return arr.reduce((acc,val) => {
-//         return acc.concat(Array.isArray(val)? flattenArray(val) : val)
-//     },[])
-// }
-
 function flattenArray(arr){
   let result = [];
 
@@ -103,6 +97,22 @@ function flattenArray(arr){
 const result = flattenArray(a1);
 console.log(result);
 
+//! FizzBuzz
+function fizzBuzz() {
+  for (let i = 1; i <= 100; i++) {
+      if (i % 3 === 0 && i % 5 === 0) {
+          console.log("FizzBuzz");
+      } else if (i % 3 === 0) {
+          console.log("Fizz");
+      } else if (i % 5 === 0) {
+          console.log("Buzz");
+      } else {
+          console.log(i);
+      }
+  }
+}
+
+fizzBuzz();
 
 
 //! Reverse String
@@ -136,39 +146,22 @@ console.log("Missing Number",outputArray);
 
 //! Rotate Array
 
-function rotateArray(array, k) {
-  k = k % array.length;
-  
-  let rotatedArr = new Array(array.length);
-  
-  for (let i = 0; i < k; i++) {
-    rotatedArr[i] = array[array.length - k + i];
+function rotateArray(arr,step){
+  step = step % arr.length
+  for(i = 0; i < step; i++){
+    const lastElement = arr.pop()
+    arr.unshift(lastElement)
   }
-  
-  for (let i = k; i < array.length; i++) {
-    rotatedArr[i] = array[i - k];
-  }
-  
-  return rotatedArr;
+  return arr
 }
 
-let array = [1, 2, 3, 4, 5];
-let k = 3;
-console.log(rotateArray(array, k)); // Output: [4, 5, 1, 2, 3]
-
-function rotateArray(array1, k1) {
-  k1 = k1 % array.length;
-  return [...array1.slice(array1.length - k1), ...array1.slice(0, array1.length - k)];
-}
-
-let array1 = [1, 2, 3, 4, 5];
-let k1 = 3;
-console.log(rotateArray(array1, k1)); // Output: [4, 5, 1, 2, 3]
+const inputArr = [1,2,3,4,5]
+const step = 3;
+const outputArr = rotateArray(inputArr,step)
+console.log(outputArr)
 
 
-
-
-// Find longest str
+//! Find longest str
 function findLongestString(sentance) {
   const words = sentance.split(" ");
   let longestWord = "";
@@ -181,21 +174,29 @@ function findLongestString(sentance) {
 }
 console.log(findLongestString("I love JavaScript"));
 
-// Palindrome
+//! Palindrome
 function isPalindrome(str) {
   const reverseStr = str.split("").reverse().join("");
   return str === reverseStr;
 }
 console.log(isPalindrome("racecar"));
 
-//Remove Duplicate from an Array
+//! Remove Duplicate from an Array
 function removeDuplicates(arr) {
-  //   return arr.filter((value, index, self) => self.indexOf(value) === index);
-  return [...new Set(arr)];
-}
-console.log(removeDuplicates([1, 2, 3, 4, 5, 5, 6, 7, 8, 8]));
+  const uniqueArray = [];
+  for(let i = 0; i < arr.length; i++){
+    if(!uniqueArray.includes(arr[i])){
+      uniqueArray.push(arr[i])
+    }
 
-//Anagram
+  }
+  return uniqueArray;
+}
+
+// Example usage:
+console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5])); // Output: [1, 2, 3, 4, 5]
+
+//! Anagram
 function isAnagram(str) {
   const sortedStr1 = str.split("").sort().join("");
   const sortedStr2 = str.split("").sort().join("");
@@ -220,7 +221,7 @@ console.log(countVowles("Hello, World"));
 function countEachVowel(str) {
   str = str.toLowerCase();
   const vowels = 'aeiou';
-    const vowelCount = {};
+  const vowelCount = {};
 
   str.split('').forEach(char => {
     if (vowels.includes(char)) {
@@ -231,12 +232,12 @@ function countEachVowel(str) {
   return vowelCount;
 }
 
-console.log(countEachVowel('aeiou'));
+console.log(countEachVowel('Barath'));
 
-//Find Largest Number
+//! Find Largest Number
 function findLargestNumber(arr) {
   let largest = arr[0];
-  for (let i = 1; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     if (arr[i] > largest) {
       largest = arr[i];
     }
@@ -245,7 +246,7 @@ function findLargestNumber(arr) {
 }
 console.log(findLargestNumber([3, 5, 6, 8, 9]));
 
-//Prime Number
+//! Prime Number
 function isPrime(num) {
   for (let i = 2; i < num; i++) {
     if (num % i === 0) {
@@ -257,7 +258,7 @@ function isPrime(num) {
 console.log(isPrime(7));
 console.log(isPrime(10));
 
-//Factorial of Number
+//! Factorial of Number
 function factional(num) {
   if (num === 0) {
     return 1;
@@ -270,7 +271,7 @@ function factional(num) {
 }
 console.log(factional(5));
 
-//trim whitespace
+//! trim whitespace
 let inputString = "Hello,   world!";
 const str = inputString.replace(/\s+/g, "");
 console.log(str);
