@@ -164,12 +164,13 @@ console.log(outputArr)
 //! Find longest str
 function findLongestString(sentance) {
   const words = sentance.split(" ");
+  console.log(words,'string');
   let longestWord = "";
-  for (let word of words) {
-    if (word.length > longestWord.length) {
-      longestWord = word;
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].length > longestWord.length) {
+        longestWord = words[i];
     }
-  }
+}
   return longestWord;
 }
 console.log(findLongestString("I love JavaScript"));
