@@ -235,6 +235,23 @@ function countEachVowel(str) {
 
 console.log(countEachVowel('Barath'));
 
+function countCharacters(str) {
+  const charCount = {}
+  
+  for(let i = 0; i < str.length; i++){
+    const char = str[i]
+    if(charCount[char]){
+      charCount[char]++
+    }else{
+      charCount[char] = 1;
+    }
+  }
+  return charCount;
+}
+
+// Example usage:
+console.log(countCharacters("hello")); // Output: { h: 1, e: 1, l: 2, o: 1 }
+
 //! Find Largest Number
 function findLargestNumber(arr) {
   let largest = arr[0];
