@@ -115,24 +115,6 @@ function fizzBuzz() {
 
 fizzBuzz();
 
-
-//! Reverse String
-
-// function reverseString(str) {
-//   return str.split("").reverse().join("");
-// }
-// console.log(reverseString("Barath Muthuvel"));
-
-function reverseString(str) {
-  let reversedStr = ''; 
-  for (let i = str.length - 1; i >= 0; i--) {
-    reversedStr += str[i]; 
-  }
-  return reversedStr;  
-}
-
-console.log(reverseString("Barath")); 
-
 //! Missing Number
 
 function getMissingNumbers(inputArray) {
@@ -155,12 +137,10 @@ function rotateArray(arr,step){
   }
   return arr
 }
-
 const inputArr = [1,2,3,4,5]
 const step = 3;
 const outputArr = rotateArray(inputArr,step)
 console.log(outputArr)
-
 
 //! Find longest str
 function findLongestString(sentance) {
@@ -280,7 +260,7 @@ let inputString = "Hello,   world!";
 const str = inputString.replace(/\s+/g, "");
 console.log(str);
 
-//call,apply,bind
+//!call,apply,bind
 let emp1 = { firstName: "John", lastName: "Doe" };
 function invite(greeting1, greeting2) {
   console.log(
@@ -293,7 +273,7 @@ invite.apply(emp1, ["hello", "How are you?"]);
 let greet = invite.bind(emp1);
 greet("Hello", "How are you?");
 
-//slice, splice
+//!slice, splice
 let arr = [1, 2, 3, 4, 5];
 let arr1 = arr.slice(2, 4);
 console.log(arr1);
