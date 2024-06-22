@@ -1,14 +1,3 @@
-//! 1
-console.log("A");
-
-setTimeout(() => {
-  console.log("B");
-}, 0);
-
-["C", "D", "E"].forEach((x) => console.log(x));
-
-console.log("F");
-
 //! 2
 
 const obj1 = [
@@ -28,28 +17,17 @@ const obj1 = [
     key: "Sample 1",
     data: "Data1",
   },
-  {
-    key: "Sample 3",
-    data: "Data3",
-  },
-  {
-    key: "Sample 4",
-    data: "Data4",
-  },
 ];
 
 const output = {};
-
 obj1.map((item) => {
   if (output[item.key]) {
-    //key is available
     output[item.key].push(item);
   } else {
     output[item.key] = [item];
   }
 });
-
-console.log(output);
+console.log(output); //{Sample 1: Array(2), Sample 2: Array(1)}
 
 //! 3
 
@@ -96,6 +74,29 @@ function flattenArray(arr){
 
 const result = flattenArray(a1);
 console.log(result);
+
+//! Remove Duplicate 
+function removeDuplicatesArr(arr) {
+  const uniqueArray = [];
+  for(let i = 0; i < arr.length; i++){
+    if(!uniqueArray.includes(arr[i])){
+      uniqueArray.push(arr[i])
+    }
+  }
+  return uniqueArray;
+}
+console.log(removeDuplicatesArr([1, 2, 2, 3, 4, 4, 5])); // Output: [1, 2, 3, 4, 5]
+
+function removeDuplicatesStr(str){
+  let uniqueStr = ""
+  for(let i = 0; i < str.length; i++){
+    if(uniqueStr.indexOf(str[i]) === -1){
+      uniqueStr += str[i]
+    }
+  }
+  return uniqueStr;
+}
+console.log(removeDuplicatesStr("Barath")); //Barth
 
 //! FizzBuzz
 function fizzBuzz() {
@@ -181,21 +182,6 @@ function isPalindrome(str) {
   return str === reverseStr;
 }
 console.log(isPalindrome("racecar"));
-
-//! Remove Duplicate from an Array
-function removeDuplicates(arr) {
-  const uniqueArray = [];
-  for(let i = 0; i < arr.length; i++){
-    if(!uniqueArray.includes(arr[i])){
-      uniqueArray.push(arr[i])
-    }
-
-  }
-  return uniqueArray;
-}
-
-// Example usage:
-console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5])); // Output: [1, 2, 3, 4, 5]
 
 //! Anagram
 function isAnagram(str) {
