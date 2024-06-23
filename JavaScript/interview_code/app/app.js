@@ -242,10 +242,47 @@ function isPrime(num) {
 console.log(isPrime(7));
 console.log(isPrime(10));
 
+function printPrimesInRange(start, end) {
+  function isPrime(num) {
+      if (num <= 1) return false;
+      for (let i = 2; i <= Math.sqrt(num); i++) {
+          if (num % i === 0) return false;
+      }
+      return true;
+  }
+  for (let i = start; i <= end; i++) {
+      if (isPrime(i)) {
+          console.log(i);
+      }
+  }
+}
+
+printPrimesInRange(10, 20); // 11, 13, 17, 19
+
+function isPrime(num) {
+  if (num <= 1) return false;
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) return false;
+  }
+  return true;
+}
+
+function findPrimesUpTo(limit) {
+  for (let i = 2; i <= limit; i++) {
+      if (isPrime(i)) {
+          console.log(i);
+      }
+  }
+}
+
+findPrimesUpTo(30); // 2, 3, 5, 7, 11, 13, 17, 19, 23, 29
+
+
+
 //! Factorial of Number
 function factional(num) {
   if (num === 0) {
-    return 1;
+    return 1; 
   }
   let factional = 1;
   for (let i = 1; i <= num; i++) {
