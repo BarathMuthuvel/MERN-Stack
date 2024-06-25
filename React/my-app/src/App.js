@@ -8,6 +8,7 @@ import TwoWayBindingExample from "./components/TwoWayDataBinding/TwoWayDataBindi
 import QuizApp from "./components/QuizApp";
 import ShowMoreProducts from "./components/ShowMoreProducts.js";
 import TreeNavMenu from "./components/TreeNavMenu.js";
+import ExpenseTracker from "./components/ExpenceTracker.js";
 
 const menuData = [
   {
@@ -78,12 +79,13 @@ function App() {
         </button> */}
         {/* <TreeNavMenu data={menuData} /> */}
         {/* <ShowMoreProducts /> */} 
-        <TicTacToe />
+        {/* <TicTacToe /> */}
         {/* <ToDo /> */}
         {/* <T9Keyboard /> */}
         {/* <Billboard /> */}
         {/* <TwoWayBindingExample /> */}
         {/* <QuizApp /> */}
+        <ExpenseTracker />
     </div>
   );
 }
