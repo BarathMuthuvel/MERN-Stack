@@ -115,6 +115,16 @@ const debounce = (func, timeout) => {
 
 const debounceFunction = debounce(getData, 400);
 
+function debounce1(func, delay) {
+  let timeout;
+  return function(...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), delay);
+  };
+}
+window.addEventListener('resize', debounce1(() => console.log('Resized'), 200));
+
+
 //! Throttling
 
 //? limits the function execution for a limited number of times
@@ -137,14 +147,23 @@ const throttle = (func, limt) => {
   };
 };
 
-const throttleFunc = throttle(expensiveFunc, 500);
+window.addEventListener('scroll', throttle(() => console.log('Scrolled'), 200));
 
-window.addEventListener("resize", throttleFunc);
 
 //! Event Bubbling - up, Event Capturing - down
 
 //? Bubbling and Capturing are the two phases of propagation.
 //? bubbling travels from the target to the root, and capturing travels from the root to the target.
+
+// Use addEventListener with the third argument true to enable capturing.
+
+<div onclick="console.log('div')">
+  <button onclick="console.log('button')">Click me</button>
+</div>
+
+document.querySelector('div').addEventListener('click', () => console.log('div'), true);
+document.querySelector('button').addEventListener('click', () => console.log('button'), true);
+
 
 document.querySelector("#grandParent").addEventListener(
   "click",

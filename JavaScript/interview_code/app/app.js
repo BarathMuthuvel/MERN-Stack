@@ -498,33 +498,42 @@ function sum(a) {
 
 console.log(sum(5)(2)(3));
 
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => resolve('Success!'), 1000);
+});
+promise.then(result => console.log(result)); // Success! (after 1 second)
+
 const p1 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve("p1 sucess");
-  }, 3000);
+  setTimeout(() => resolve("p1 sucess"), 3000);
 });
-
 const p2 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve("p2 rejected");
-  }, 2000);
+  setTimeout(() => resolve("p2 rejected"), 2000);
 });
+Promise.all([p1, p2]).then((result) => {console.log(result);});
+Promise.allSettled([p1, p2]).then((result) => {console.log(result);});
+Promise.race([p1, p2]).then((result) => {console.log(result);});
+Promise.any([p1, p2]).then((result) => {console.log(result);});
 
-Promise.all([p1, p2]).then((result) => {
-  console.log(result);
-});
+async function fetchData() {
+  const response = await fetch('https://api.example.com/data');
+  const data = await response.json();
+  console.log(data);
+}
+fetchData();
 
-Promise.allSettled([p1, p2]).then((result) => {
-  console.log(result);
-});
 
-Promise.race([p1, p2]).then((result) => {
-  console.log(result);
-});
+function createCounter() {
+  let count = 0;
+  return function() {
+    count++;
+    console.log(count);
+  };
+}
+const counter = createCounter();
+counter(); // 1
+counter(); // 2
 
-Promise.any([p1, p2]).then((result) => {
-  console.log(result);
-});
+
 
 let radiusArr = [1, 2, 3, 4];
 
