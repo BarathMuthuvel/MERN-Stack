@@ -59,7 +59,7 @@ console.log(memoizedAdd(2, 3)); // 5, Add function is called to get new value
 
 const a1 = [1, 2, 3, [4, [5, 6]], 7, 8];
 
-function flattenArray(arr){
+function flattenArray(arr) {
   let result = [];
 
   for (let i = 0; i < arr.length; i++) {
@@ -75,23 +75,23 @@ function flattenArray(arr){
 const result = flattenArray(a1);
 console.log(result);
 
-//! Remove Duplicate 
+//! Remove Duplicate
 function removeDuplicatesArr(arr) {
   const uniqueArray = [];
-  for(let i = 0; i < arr.length; i++){
-    if(!uniqueArray.includes(arr[i])){
-      uniqueArray.push(arr[i])
+  for (let i = 0; i < arr.length; i++) {
+    if (!uniqueArray.includes(arr[i])) {
+      uniqueArray.push(arr[i]);
     }
   }
   return uniqueArray;
 }
 console.log(removeDuplicatesArr([1, 2, 2, 3, 4, 4, 5])); // Output: [1, 2, 3, 4, 5]
 
-function removeDuplicatesStr(str){
-  let uniqueStr = ""
-  for(let i = 0; i < str.length; i++){
-    if(uniqueStr.indexOf(str[i]) === -1){
-      uniqueStr += str[i]
+function removeDuplicatesStr(str) {
+  let uniqueStr = "";
+  for (let i = 0; i < str.length; i++) {
+    if (uniqueStr.indexOf(str[i]) === -1) {
+      uniqueStr += str[i];
     }
   }
   return uniqueStr;
@@ -101,15 +101,15 @@ console.log(removeDuplicatesStr("Barath")); //Barth
 //! FizzBuzz
 function fizzBuzz() {
   for (let i = 1; i <= 100; i++) {
-      if (i % 3 === 0 && i % 5 === 0) {
-          console.log("FizzBuzz");
-      } else if (i % 3 === 0) {
-          console.log("Fizz");
-      } else if (i % 5 === 0) {
-          console.log("Buzz");
-      } else {
-          console.log(i);
-      }
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log("FizzBuzz");
+    } else if (i % 3 === 0) {
+      console.log("Fizz");
+    } else if (i % 5 === 0) {
+      console.log("Buzz");
+    } else {
+      console.log(i);
+    }
   }
 }
 
@@ -118,40 +118,39 @@ fizzBuzz();
 //! Missing Number
 
 function getMissingNumbers(inputArray) {
-  const fullRange = [1, 2, 3, 4, 5, 6, 7, 8, 9] 
-  return fullRange.filter(num => !inputArray.includes(num)); 
+  const fullRange = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  return fullRange.filter((num) => !inputArray.includes(num));
 }
 
-const inputArray = [2,4,6,8];
+const inputArray = [2, 4, 6, 8];
 const outputArray = getMissingNumbers(inputArray);
-console.log("Missing Number",outputArray);
-
+console.log("Missing Number", outputArray);
 
 //! Rotate Array
 
-function rotateArray(arr,step){
-  step = step % arr.length
-  for(i = 0; i < step; i++){
-    const lastElement = arr.pop()
-    arr.unshift(lastElement)
+function rotateArray(arr, step) {
+  step = step % arr.length;
+  for (i = 0; i < step; i++) {
+    const lastElement = arr.pop();
+    arr.unshift(lastElement);
   }
-  return arr
+  return arr;
 }
-const inputArr = [1,2,3,4,5]
+const inputArr = [1, 2, 3, 4, 5];
 const step = 3;
-const outputArr = rotateArray(inputArr,step)
-console.log(outputArr)
+const outputArr = rotateArray(inputArr, step);
+console.log(outputArr);
 
 //! Find longest str
 function findLongestString(sentance) {
   const words = sentance.split(" ");
-  console.log(words,'string');
+  console.log(words, "string");
   let longestWord = "";
   for (let i = 0; i < words.length; i++) {
     if (words[i].length > longestWord.length) {
-        longestWord = words[i];
+      longestWord = words[i];
     }
-}
+  }
   return longestWord;
 }
 console.log(findLongestString("I love JavaScript"));
@@ -178,7 +177,7 @@ function countVowles(str) {
   let count = 0;
   for (let char of str.toLowerCase()) {
     if (vowles.includes(char)) {
-      count++; 
+      count++;
     }
   }
   return count;
@@ -187,10 +186,10 @@ console.log(countVowles("Hello, World"));
 
 function countEachVowel(str) {
   str = str.toLowerCase();
-  const vowels = 'aeiou';
+  const vowels = "aeiou";
   const vowelCount = {};
 
-  str.split('').forEach(char => {
+  str.split("").forEach((char) => {
     if (vowels.includes(char)) {
       vowelCount[char] = (vowelCount[char] || 0) + 1;
     }
@@ -199,23 +198,21 @@ function countEachVowel(str) {
   return vowelCount;
 }
 
-console.log(countEachVowel('Barath'));
+console.log(countEachVowel("Barath"));
 
 function countCharacters(str) {
-  const charCount = {}
-  
-  for(let i = 0; i < str.length; i++){
-    const char = str[i]
-    if(charCount[char]){
-      charCount[char]++
-    }else{
+  const charCount = {};
+
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+    if (charCount[char]) {
+      charCount[char]++;k
+    } else {
       charCount[char] = 1;
     }
   }
   return charCount;
 }
-
-// Example usage:
 console.log(countCharacters("hello")); // Output: { h: 1, e: 1, l: 2, o: 1 }
 
 //! Find Largest Number
@@ -244,16 +241,16 @@ console.log(isPrime(10));
 
 function printPrimesInRange(start, end) {
   function isPrime(num) {
-      if (num <= 1) return false;
-      for (let i = 2; i <= Math.sqrt(num); i++) {
-          if (num % i === 0) return false;
-      }
-      return true;
+    if (num <= 1) return false;
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) return false;
+    }
+    return true;
   }
   for (let i = start; i <= end; i++) {
-      if (isPrime(i)) {
-          console.log(i);
-      }
+    if (isPrime(i)) {
+      console.log(i);
+    }
   }
 }
 
@@ -262,27 +259,25 @@ printPrimesInRange(10, 20); // 11, 13, 17, 19
 function isPrime(num) {
   if (num <= 1) return false;
   for (let i = 2; i <= Math.sqrt(num); i++) {
-      if (num % i === 0) return false;
+    if (num % i === 0) return false;
   }
   return true;
 }
 
 function findPrimesUpTo(limit) {
   for (let i = 2; i <= limit; i++) {
-      if (isPrime(i)) {
-          console.log(i);
-      }
+    if (isPrime(i)) {
+      console.log(i);
+    }
   }
 }
 
 findPrimesUpTo(30); // 2, 3, 5, 7, 11, 13, 17, 19, 23, 29
 
-
-
 //! Factorial of Number
 function factional(num) {
   if (num === 0) {
-    return 1; 
+    return 1;
   }
   let factional = 1;
   for (let i = 1; i <= num; i++) {
@@ -499,9 +494,9 @@ function sum(a) {
 console.log(sum(5)(2)(3));
 
 const promise = new Promise((resolve, reject) => {
-  setTimeout(() => resolve('Success!'), 1000);
+  setTimeout(() => resolve("Success!"), 1000);
 });
-promise.then(result => console.log(result)); // Success! (after 1 second)
+promise.then((result) => console.log(result)); // Success! (after 1 second)
 
 const p1 = new Promise((resolve, reject) => {
   setTimeout(() => resolve("p1 sucess"), 3000);
@@ -509,22 +504,29 @@ const p1 = new Promise((resolve, reject) => {
 const p2 = new Promise((resolve, reject) => {
   setTimeout(() => resolve("p2 rejected"), 2000);
 });
-Promise.all([p1, p2]).then((result) => {console.log(result);});
-Promise.allSettled([p1, p2]).then((result) => {console.log(result);});
-Promise.race([p1, p2]).then((result) => {console.log(result);});
-Promise.any([p1, p2]).then((result) => {console.log(result);});
+Promise.all([p1, p2]).then((result) => {
+  console.log(result);
+});
+Promise.allSettled([p1, p2]).then((result) => {
+  console.log(result);
+});
+Promise.race([p1, p2]).then((result) => {
+  console.log(result);
+});
+Promise.any([p1, p2]).then((result) => {
+  console.log(result);
+});
 
 async function fetchData() {
-  const response = await fetch('https://api.example.com/data');
+  const response = await fetch("https://api.example.com/data");
   const data = await response.json();
   console.log(data);
 }
 fetchData();
 
-
 function createCounter() {
   let count = 0;
-  return function() {
+  return function () {
     count++;
     console.log(count);
   };
@@ -532,8 +534,6 @@ function createCounter() {
 const counter = createCounter();
 counter(); // 1
 counter(); // 2
-
-
 
 let radiusArr = [1, 2, 3, 4];
 
@@ -549,8 +549,8 @@ const caculate = function (radiusArr, opreation) {
   return output;
 };
 
-console.log(caculate(radiusArr,area));
+console.log(caculate(radiusArr, area));
 
-let arr5 = [1,2,3,4]
-let obj = {...arr5}
+let arr5 = [1, 2, 3, 4];
+let obj = { ...arr5 };
 console.log(obj);
